@@ -1,0 +1,39 @@
+
+.person-details {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+    max-width: 300px;
+  }
+  
+  .person-details p {
+    margin: 5px 0;
+  }
+  
+  .person-details label {
+    display: block;
+    margin-top: 5px;
+  }
+  
+  .person-details input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .person-details button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  
+  .person-details button:hover {
+    background-color: #45a049;
+  }
+  
