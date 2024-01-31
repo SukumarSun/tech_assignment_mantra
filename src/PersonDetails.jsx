@@ -1,14 +1,20 @@
 import React from "react";
 import "./PersonDetails.css"; 
 
-const PersonDetails = ({ data, onDelete }) => {
+const PersonDetails = ({ data, onDelete,addDropData}) => {
   const handleDelete = () => {
 
     onDelete(data.id);
   };
 
+  const handleDragStart = (e,Person) => {
+    addDropData(Person)
+    e.dataTransfer.setData(`person${data.id}`, Person);
+  }
+
+
   return (
-    <div className="person-details">
+    <div className="person-details" draggable onDragStart={(e)=>handleDragStart(e,data)}>
       <p>Name: {data.name}</p>
       <p>Email: {data.email}</p>
       <p>Phone: {data.phone}</p>
@@ -18,6 +24,4 @@ const PersonDetails = ({ data, onDelete }) => {
   );
 };
 
-export default PersonDetails;
-
-
+export default PersonDetails

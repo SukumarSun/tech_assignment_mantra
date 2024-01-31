@@ -48,8 +48,8 @@
   border: 1px solid #ccc;
   padding: 10px;
   border-radius: 5px;
-  margin-bottom: 8px;
-  width: 100%;
+  width: 300px;
+  margin: 10px;
   background-color: #fff;
 }
 
@@ -132,3 +132,23 @@
 }
 
 
+
+.shortlisted{
+  width: 1100px;
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+ 
+  align-items: center;
+  border: 1px solid #ddd;
+  padding: 30px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.drop_container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

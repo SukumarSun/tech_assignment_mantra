@@ -13,8 +13,27 @@ const App = () => {
     "40+": [],
   });
 
+  const [dropData,setDropData]=useState([])
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editPersonId, setEditPersonId] = useState(null);
+
+  
+  
+  const handleOnDrop = (e)=>{
+    const Person = e.dataTransfer.getData("Person")
+    setDropData([...dropData,Person])
+  }
+
+  console.log(dropData)
+
+  const addDropData=(personObj)=>{
+    setDropData([...dropData,personObj])
+  }
+
+  const handleOnDropOver=(e)=>{
+    e.preventDefault()
+  }
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -141,15 +160,32 @@ const App = () => {
             <h2>{category}</h2>
             {persons.map((person) => (
               <div className="person" key={person.id}>
-                <PersonDetails data={person} onDelete={() => handleDelete(category, person.id)} />
+                <PersonDetails data={person} onDelete={() => handleDelete(category, person.id)} addDropData={addDropData}/>
               </div>
             ))}
           </div>
         ))}
       </div>
+      <div>
+        <div className="drop_container">
+          <h1>Drop the Selected Candidates Here below</h1>
+          <div className="shortlisted" onDragOver={handleOnDropOver}>
+          
+                  {dropData.map((each,index)=>(
+                    <div className="person" key={index}>
+                      <PersonDetails data={each} key={index}/>  
+                    </div>
+                  ))}
+          </div>
+        </div>
+     
+      </div>
+      
     </div>
   );
 };
 
 export default App;
 
+
+// onDrop={handleOnDrop}
